@@ -113,11 +113,14 @@ public class Slingshot.Backend.AppSystem : Object {
                             break;
                         }
 
-                        var needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
+                        if (keyfile.has_key("Desktop Entry", "Terminal")) {
+                            var needs_terminal = keyfile.get_boolean ("Desktop Entry", "Terminal");
 
-                        if (needs_terminal) {
-                            break;
+                            if (needs_terminal) {
+                                break;
+                            }
                         }
+
                     } catch (Error e) {
                         break;
                     }
