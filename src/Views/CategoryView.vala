@@ -151,6 +151,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
         setup_sidebar ();
         settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
+        rollover_menus = settings.get_boolean("rollover-menu");
         settings.changed["rollover-menu"].connect_after(() => {
             rollover_menus = settings.get_boolean("rollover-menu");
         });
