@@ -304,7 +304,7 @@ namespace Synapse {
             } else if (session.has_prefix ("kde")) {
                 session_type = DesktopFileInfo.EnvironmentType.KDE;
                 session_type_str = "KDE";
-            } else if (session.has_prefix ("gnome") || session.has_prefix ("ubuntu")) {
+            } else if (session.has_prefix ("gnome") || session.has_prefix ("ubuntu") || session.has_prefix ("budgie")) {
                 session_type = DesktopFileInfo.EnvironmentType.GNOME;
                 session_type_str = "GNOME";
             } else if (session.has_prefix ("lxde")) {
