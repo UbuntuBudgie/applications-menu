@@ -95,6 +95,7 @@ class PowerStrip : Gtk.Box
         btn.halign = Gtk.Align.START;
         btn.get_style_context().add_class("flat");
         btn.set_tooltip_text(_("Shutdown"));
+        btn.set_can_focus(false);
         bottom.pack_start(btn, false, false, 0);
 
         btn = new Gtk.Button.from_icon_name("system-suspend-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -110,6 +111,7 @@ class PowerStrip : Gtk.Box
         btn.halign = Gtk.Align.START;
         btn.get_style_context().add_class("flat");
         btn.set_tooltip_text(_("Suspend"));
+        btn.set_can_focus(false);
         bottom.pack_start(btn, false, false, 0);
 
         btn = new Gtk.Button.from_icon_name("system-restart-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -119,6 +121,7 @@ class PowerStrip : Gtk.Box
         btn.halign = Gtk.Align.START;
         btn.get_style_context().add_class("flat");
         btn.set_tooltip_text(_("Restart"));
+        btn.set_can_focus(false);
         bottom.pack_start(btn, false, false, 0);
 
         btn = new Gtk.Button.from_icon_name("system-lock-screen-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -129,6 +132,7 @@ class PowerStrip : Gtk.Box
         btn.halign = Gtk.Align.START;
         btn.get_style_context().add_class("flat");
         btn.set_tooltip_text(_("Lock"));
+        btn.set_can_focus(false);
         bottom.pack_start(btn, false, false, 0);
 
         btn = new Gtk.Button.from_icon_name("system-log-out-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -147,6 +151,7 @@ class PowerStrip : Gtk.Box
         btn.halign = Gtk.Align.START;
         btn.get_style_context().add_class("flat");
         btn.set_tooltip_text(_("Logout"));
+        btn.set_can_focus(false);
         bottom.pack_start(btn, false, false, 0);
 
         lock_btn.no_show_all = true;
