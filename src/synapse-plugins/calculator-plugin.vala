@@ -114,10 +114,18 @@ namespace Synapse {
                     if (solution != null) {
                         double d = double.parse (solution);
                         Result result = new Result (d, query.query_string);
+#if GRANITE6
                         result.description = "%s\n%s".printf (
                             "%s = %g".printf (query.query_string, d),
                             Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Click to copy result to clipboard"))
                         );  // Used for search item tooltip
+#else
+                        result.description = "%s\n%s".printf (
+                            "%s = %g".printf (query.query_string, d),
+                            """<span weight="600" size="smaller" alpha="75%">%s</span>""".printf (_("Click to copy result to clipboard"))
+                        );  // Used for search item tooltip
+
+#endif
 
                         ResultSet results = new ResultSet ();
                         results.add (result, Match.Score.AVERAGE);
