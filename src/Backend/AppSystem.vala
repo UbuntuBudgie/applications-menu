@@ -145,7 +145,7 @@ public class Slingshot.Backend.AppSystem : Object {
 
 
                     var app = new App (iter.get_entry ());
-                    if ("gnome-control-center" in app.exec) {
+                    if ("gnome-control-center" in app.exec && app.exec.length != "gnome-control-center".length) {
                         continue; // lets ignore all gnome-control-center items
                     }
 #if HAVE_ZEITGEIST
