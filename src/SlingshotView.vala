@@ -48,11 +48,9 @@ public class Slingshot.SlingshotView : Gtk.Grid {
     private Widgets.CategoryView category_view;
 
     private static GLib.Settings settings { get; private set; default = null; }
-    private static GLib.Settings appmenu_settings { get; private set; default = null; }
 
     static construct {
-        settings = new GLib.Settings ("io.elementary.desktop.wingpanel.applications-menu");
-        appmenu_settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
+        settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
     }
 
     construct {
@@ -180,18 +178,18 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             category_view.setup_sidebar ();
         });
 
-        appmenu_settings.changed["rows"].connect_after(() => {
+        settings.changed["rows"].connect_after(() => {
             grid_view.populate (app_system);
         });
 
-        appmenu_settings.changed["columns"].connect_after(() => {
+        settings.changed["columns"].connect_after(() => {
             grid_view.populate (app_system);
         });
 
         powerstrip.invoke_action.connect(() => {
             close_indicator ();
         });
-        powerstrip.set_visible(appmenu_settings.get_boolean("enable-powerstrip"));
+        powerstrip.set_visible(settings.get_boolean("enable-powerstrip"));
     }
 
     public void panel_position_changed(Budgie.PanelPosition position) {
@@ -390,7 +388,7 @@ public class Slingshot.SlingshotView : Gtk.Grid {
         stack.transition_type = Gtk.StackTransitionType.NONE;
         set_modality ((Modality) view_selector.selected);
         view_selector_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
-        powerstrip.set_visible(appmenu_settings.get_boolean("enable-powerstrip"));
+        powerstrip.set_visible(settings.get_boolean("enable-powerstrip"));
         stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
     }
 

@@ -41,10 +41,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private uint current_col = 0;
 
     private static GLib.Settings settings { get; private set; default = null; }
-    private static GLib.Settings appmenu_settings { get; private set; default = null; }
     static construct {
-        settings = new GLib.Settings ("io.elementary.desktop.wingpanel.applications-menu");
-        appmenu_settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
+        settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
     }
 
     construct {
@@ -80,8 +78,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
         grids.clear ();
 
-        page.rows = appmenu_settings.get_int("rows");
-        page.columns = appmenu_settings.get_int("columns");
+        page.rows = settings.get_int("rows");
+        page.columns = settings.get_int("columns");
 
         current_row = 0;
         current_col = 0;

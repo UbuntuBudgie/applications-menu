@@ -18,5 +18,10 @@
             <default>false</default>
             <summary>Allow category view rollover menu</summary>
         </key>
+        <key name="use-category" type="b">
+            <default>false</default>
+            <summary>Show the category view by default</summary>
+            <description>Save the current view of the launcher.</description>
+        </key>
 	</schema>
 </schemalist>

@@ -8,7 +8,6 @@
 #)
 
 install_data(
-    'io.elementary.desktop.wingpanel.applications-menu.gschema.xml',
     'org.ubuntubudgie.plugins.budgie-appmenu.gschema.xml',
     install_dir: join_paths(datadir, 'glib-2.0', 'schemas')
 )
