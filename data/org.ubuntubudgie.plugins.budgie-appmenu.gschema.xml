@@ -23,5 +23,10 @@
             <summary>Show the category view by default</summary>
             <description>Save the current view of the launcher.</description>
         </key>
+        <key name="category-margin" type="i">
+            <default>0</default>
+            <range min="0" max="15"/>
+            <summary>Margin size around each category name</summary>
+        </key>
 	</schema>
 </schemalist>

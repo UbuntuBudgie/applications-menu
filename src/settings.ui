@@ -2,15 +2,21 @@
 <!-- Generated with glade 3.36.0 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
-  <object class="GtkAdjustment" id="adjustment1">
+  <object class="GtkAdjustment" id="adjustment_rows">
     <property name="lower">2</property>
     <property name="upper">10</property>
     <property name="step_increment">1</property>
     <property name="page_increment">1</property>
   </object>
-  <object class="GtkAdjustment" id="adjustment2">
+  <object class="GtkAdjustment" id="adjustment_colums">
     <property name="lower">2</property>
     <property name="upper">10</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">1</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment_category_margin">
+    <property name="lower">0</property>
+    <property name="upper">15</property>
     <property name="step_increment">1</property>
     <property name="page_increment">1</property>
   </object>
@@ -82,7 +88,7 @@
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="input_purpose">digits</property>
-        <property name="adjustment">adjustment1</property>
+        <property name="adjustment">adjustment_rows</property>
         <property name="snap_to_ticks">True</property>
         <property name="numeric">True</property>
       </object>
@@ -96,7 +102,7 @@
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="input_purpose">digits</property>
-        <property name="adjustment">adjustment2</property>
+        <property name="adjustment">adjustment_colums</property>
         <property name="snap_to_ticks">True</property>
         <property name="numeric">True</property>
       </object>
@@ -218,6 +224,32 @@
       <packing>
         <property name="left_attach">1</property>
         <property name="top_attach">6</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkLabel">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">start</property>
+        <property name="label" translatable="yes" comments="Margin size around each category name">Category Margin</property>
+      </object>
+      <packing>
+        <property name="left_attach">0</property>
+        <property name="top_attach">7</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSpinButton" id="spin_category_margin">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="input_purpose">digits</property>
+        <property name="adjustment">adjustment_category_margin</property>
+        <property name="snap_to_ticks">True</property>
+        <property name="numeric">True</property>
+      </object>
+      <packing>
+        <property name="left_attach">1</property>
+        <property name="top_attach">7</property>
       </packing>
     </child>
   </template>

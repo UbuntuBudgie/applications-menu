@@ -26,7 +26,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private NavListBox category_switcher;
     private NavListBox listbox;
     private bool rollover_menus=false;
-    private static GLib.Settings settings=null;
+
+    private static GLib.Settings settings = null;
+
+    static construct {
+        settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
+    }
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
@@ -150,10 +155,14 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         });
 
         setup_sidebar ();
-        settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
+
         rollover_menus = settings.get_boolean("rollover-menu");
         settings.changed["rollover-menu"].connect_after(() => {
             rollover_menus = settings.get_boolean("rollover-menu");
+        });
+
+        settings.changed["category-margin"].connect(() => {
+            setup_sidebar ();
         });
     }
 
@@ -234,13 +243,15 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.show_all ();
 
         // Fill the sidebar
+        int category_margin = settings.get_int ("category-margin");
+
         unowned Gtk.ListBoxRow? new_selected = null;
         foreach (string cat_name in view.app_system.apps.keys) {
             if (cat_name == "switchboard") {
                 continue;
             }
 
-            var row = new CategoryRow (cat_name);
+            var row = new CategoryRow (cat_name, category_margin);
             row.eventbox.enter_notify_event.connect(this.on_mouse_enter);
             category_switcher.add (row);
             if (old_selected != null && old_selected.cat_name == cat_name) {
@@ -306,6 +317,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     private class CategoryRow : Gtk.ListBoxRow {
         public string cat_name { get; construct; }
+        public int margin { get; construct; }
         public Gtk.EventBox eventbox;
         public string translated_name {
             get {
@@ -313,14 +325,17 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             }
         }
 
-        public CategoryRow (string cat_name) {
-            Object (cat_name: cat_name);
+        public CategoryRow (string cat_name, int margin) {
+            Object (cat_name: cat_name, margin: margin);
         }
 
         construct {
             var label = new Gtk.Label (translated_name);
             label.halign = Gtk.Align.START;
-            label.margin_start = 3;
+            label.margin_start  = this.margin + 3;
+            label.margin_end    = this.margin + 3;
+            label.margin_top    = this.margin;
+            label.margin_bottom = this.margin;
             eventbox = new Gtk.EventBox();
             eventbox.add(label);
             eventbox.add_events(Gdk.EventMask.ENTER_NOTIFY_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK);
