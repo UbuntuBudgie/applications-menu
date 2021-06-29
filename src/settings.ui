@@ -14,8 +14,8 @@
     <property name="step_increment">1</property>
     <property name="page_increment">1</property>
   </object>
-  <object class="GtkAdjustment" id="adjustment_category_margin">
-    <property name="lower">0</property>
+  <object class="GtkAdjustment" id="adjustment_category_spacing">
+    <property name="lower">-15</property>
     <property name="upper">15</property>
     <property name="step_increment">1</property>
     <property name="page_increment">1</property>
@@ -231,7 +231,8 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">start</property>
-        <property name="label" translatable="yes" comments="Margin size around each category name">Category Margin</property>
+        <property name="label" translatable="yes" comments="Spacing around each category name">Adjust Category
+Spacing</property>
       </object>
       <packing>
         <property name="left_attach">0</property>
@@ -239,11 +240,12 @@
       </packing>
     </child>
     <child>
-      <object class="GtkSpinButton" id="spin_category_margin">
+      <object class="GtkSpinButton" id="spin_category_spacing">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
+        <property name="valign">center</property>
         <property name="input_purpose">digits</property>
-        <property name="adjustment">adjustment_category_margin</property>
+        <property name="adjustment">adjustment_category_spacing</property>
         <property name="snap_to_ticks">True</property>
         <property name="numeric">True</property>
       </object>

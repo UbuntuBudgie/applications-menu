@@ -57,7 +57,7 @@ namespace AppMenuApplet {
         private Gtk.Switch? switch_rollover;
 
         [GtkChild]
-        private Gtk.SpinButton spin_category_margin;
+        private Gtk.SpinButton spin_category_spacing;
 
         private GLib.Settings? settings;
         private static GLib.Settings appmenu_settings { get; private set; default = null; }
@@ -76,7 +76,7 @@ namespace AppMenuApplet {
             appmenu_settings.bind("rows", spin_rows, "value", SettingsBindFlags.DEFAULT);
             appmenu_settings.bind("enable-powerstrip", switch_powerstrip, "active", SettingsBindFlags.DEFAULT);
             appmenu_settings.bind("rollover-menu", switch_rollover, "active", SettingsBindFlags.DEFAULT);
-            appmenu_settings.bind("category-margin", spin_category_margin, "value", SettingsBindFlags.DEFAULT);
+            appmenu_settings.bind("category-spacing", spin_category_spacing, "value", SettingsBindFlags.DEFAULT);
 
             this.button_icon_pick.clicked.connect(on_pick_click);
         }
