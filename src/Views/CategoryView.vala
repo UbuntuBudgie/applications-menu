@@ -26,7 +26,12 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     private NavListBox category_switcher;
     private NavListBox listbox;
     private bool rollover_menus=false;
-    private static GLib.Settings settings=null;
+
+    private static GLib.Settings settings = null;
+
+    static construct {
+        settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
+    }
 
     private const Gtk.TargetEntry DND = { "text/uri-list", 0, 0 };
 
@@ -37,6 +42,8 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
     construct {
         set_visible_window (false);
         hexpand = true;
+
+        define_css_styles();
 
         category_switcher = new NavListBox ();
         category_switcher.selection_mode = Gtk.SelectionMode.BROWSE;
@@ -150,11 +157,40 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         });
 
         setup_sidebar ();
-        settings = new GLib.Settings ("org.ubuntubudgie.plugins.budgie-appmenu");
+
         rollover_menus = settings.get_boolean("rollover-menu");
         settings.changed["rollover-menu"].connect_after(() => {
             rollover_menus = settings.get_boolean("rollover-menu");
         });
+
+        settings.changed["category-spacing"].connect(() => {
+            setup_sidebar ();
+        });
+    }
+
+    private void define_css_styles() {
+        var css_builder = new StringBuilder ();
+        for (int spacing = -15; spacing <= 15; ++spacing) {
+            int bottom = spacing / 2;
+            int top = spacing - bottom;
+
+            css_builder.append_printf ("""
+                .budgie_application_menu_category_row_%d {
+                    margin: %dpx 3px %dpx 3px;
+                }
+                """, spacing, top, bottom);
+        }
+
+        Gdk.Screen screen = this.get_screen ();
+        Gtk.CssProvider css_provider = new Gtk.CssProvider ();
+        try {
+            css_provider.load_from_data (css_builder.str);
+            Gtk.StyleContext.add_provider_for_screen (
+                screen, css_provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+        }
+        catch (Error e) {
+            message("Could not load css %s", e.message);
+        }
     }
 
     private static int category_sort_func (CategoryRow row1, CategoryRow row2) {
@@ -234,13 +270,15 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         listbox.show_all ();
 
         // Fill the sidebar
+        int category_spacing = settings.get_int ("category-spacing");
+
         unowned Gtk.ListBoxRow? new_selected = null;
         foreach (string cat_name in view.app_system.apps.keys) {
             if (cat_name == "switchboard") {
                 continue;
             }
 
-            var row = new CategoryRow (cat_name);
+            var row = new CategoryRow (cat_name, category_spacing);
             row.eventbox.enter_notify_event.connect(this.on_mouse_enter);
             category_switcher.add (row);
             if (old_selected != null && old_selected.cat_name == cat_name) {
@@ -306,6 +344,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
 
     private class CategoryRow : Gtk.ListBoxRow {
         public string cat_name { get; construct; }
+        public int cat_margin { get; construct; }
         public Gtk.EventBox eventbox;
         public string translated_name {
             get {
@@ -313,18 +352,21 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
             }
         }
 
-        public CategoryRow (string cat_name) {
-            Object (cat_name: cat_name);
+        public CategoryRow (string cat_name, int cat_margin) {
+            Object (cat_name: cat_name, cat_margin: cat_margin);
         }
 
         construct {
             var label = new Gtk.Label (translated_name);
             label.halign = Gtk.Align.START;
-            label.margin_start = 3;
+            label.margin = 0;
+            label.get_style_context().add_class("budgie_application_menu_category_row_%d".printf(this.cat_margin));
+
             eventbox = new Gtk.EventBox();
             eventbox.add(label);
             eventbox.add_events(Gdk.EventMask.ENTER_NOTIFY_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK);
-            add (eventbox);
+
+            this.add (eventbox);
         }
     }
 
