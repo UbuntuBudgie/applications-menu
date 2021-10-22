@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-01-26 13:43+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
+"PO-Revision-Date: 2021-09-29 03:54+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
 "wingpanel/applications-menu/nb/>\n"
 "Language: nb\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Programmer"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Åpne og søk i programmer"
 
@@ -44,35 +44,93 @@ msgstr "Programsøk"
 msgid "Clear all"
 msgstr "Tøm alt"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Tilbehør"
+
+#: src/Backend/AppSystem.vala:87
+#, fuzzy
+msgid "Universal Access"
+msgstr "Universell utforming"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programmering"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Utdanning"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Vitenskap"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Spill"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Grafikk"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internett"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Lyd og bilde"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Konto"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Systemverktøy"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Annet"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Kjør denne kommando…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "Forvalg"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "Prøv å endre søkeord."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ingen resultater for \"%s\""
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Åpne med %s-grafikk"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "Fjern fra _dokken"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "Legg til _dokken"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "Avinstaller"
 
-#: src/Widgets/AppContextMenu.vala:102
-#, fuzzy
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
-msgstr "AppSenter"
+msgstr "Vis i AppSenter"
 
 #: src/Widgets/SearchItem.vala:36
 msgid "Text"
@@ -94,10 +152,6 @@ msgstr "Søk"
 msgid "Contacts"
 msgstr "Kontakter"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internett"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Innstillinger"
@@ -105,10 +159,6 @@ msgstr "Innstillinger"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Applikasjonshandlinger"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Annet"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -118,11 +168,11 @@ msgstr "Kopier til utklippstavle"
 msgid "Copy selection to clipboard"
 msgstr "Kopier utvalget til utklippstavlen"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Kjør"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "Kjør en applikasjon, handling eller skript"
 
@@ -170,10 +220,8 @@ msgid "bc is not installed"
 msgstr "bc er ikke installert"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Kopier utvalget til utklippstavlen"
+msgstr "Klikk for å kopiere resultatet til utklippstavlen"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -188,16 +236,16 @@ msgstr "Kjør kommando"
 msgid "Find and execute arbitrary commands."
 msgstr "Finn og kjør vilkårlige kommandoer."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Søk og kjør programmer på datamaskinen."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Åpne med %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Åpner utvalget med %s"

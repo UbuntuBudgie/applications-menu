@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-04-08 19:55+0000\n"
-"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
+"PO-Revision-Date: 2021-09-10 21:07+0000\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/uk/>\n"
 "Language: uk\n"
@@ -21,13 +21,13 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Застосунки"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
-msgstr "Відкриття та пошук застосунків"
+msgstr "Відкрити та шукати застосунки"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
@@ -45,32 +45,89 @@ msgstr "Шукати застосунки"
 msgid "Clear all"
 msgstr "Очистити все"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Допоміжне устаткування"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Універсальний доступ"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Програмування"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Навчання"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Наука"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Ігри"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Графіка"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Інтернет"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Звук і відео"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Офіс"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Системні засоби"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Інше"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Виконати цю команду…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "Типово"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "Спробуйте змінити пошукові терміни."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
-msgstr "Результати для “%s” відсутні"
+msgstr "Результати для «%s» відсутні"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Відкрити за допомогою графічного процесора %s"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "Вилучити з _доку"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "Додати в д_ок"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "Видалити"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "Переглянути в центрі застосунків"
 
@@ -94,21 +151,13 @@ msgstr "Пошук"
 msgid "Contacts"
 msgstr "Контакти"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Інтернет"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
-msgstr "Параметри"
+msgstr "Налаштування"
 
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Дії застосунків"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Інше"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -118,13 +167,13 @@ msgstr "Скопіювати до буфера обміну"
 msgid "Copy selection to clipboard"
 msgstr "Скопіювати виділене у буфер обміну"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Виконати"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
-msgstr "Запуск застосунку, дії або сценарію"
+msgstr "Запуск застосунку, дії або скрипту"
 
 #: src/synapse-core/Actions/TerminalRunnerAction.vala:25
 msgid "Run in Terminal"
@@ -176,7 +225,7 @@ msgstr "Клацніть, щоб скопіювати результат у бу
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
 msgid "Execute '%s'"
-msgstr "Виконати '%s'"
+msgstr "Виконати «%s»"
 
 #: src/synapse-plugins/command-plugin.vala:39
 msgid "Run command"
@@ -186,16 +235,16 @@ msgstr "Виконати команду"
 msgid "Find and execute arbitrary commands."
 msgstr "Пошук та виконання довільних команд."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Пошук та запуск застосунків на вашому комп’ютері."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Відкрити за допомогою %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Відкриває поточне виділення в %s"
@@ -225,11 +274,11 @@ msgstr "Відкрити посилання у веб-браузері за за
 #: src/synapse-plugins/switchboard-plugin.vala:49
 #, c-format
 msgid "Open %s settings"
-msgstr "Відкрити %s параметри"
+msgstr "Відкрити %s налаштування"
 
 #: src/synapse-plugins/switchboard-plugin.vala:70
 msgid "Find switchboard plugs and open them."
-msgstr "Знайти додатки системних параметрів та відкрити їх."
+msgstr "Знайти додатки налаштувань та відкрити їх."
 
 #: src/synapse-plugins/system-managment.vala:110
 msgid "Lock"

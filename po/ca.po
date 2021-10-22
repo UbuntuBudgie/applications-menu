@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-04-09 19:06+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
+"PO-Revision-Date: 2021-09-12 04:42+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ca/>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplicacions"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Cerqueu i obriu aplicacions"
 
@@ -44,32 +44,89 @@ msgstr "Cerca aplicacions"
 msgid "Clear all"
 msgstr "Neteja-ho tot"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Accessoris"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Accés universal"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programació"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Educació"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Ciència"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Jocs"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Gràfics"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "So i vídeo"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Oficina"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Eines del sistema"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Altres"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Executa aquesta ordre…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "Per defecte"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "Proveu de canviar els termes de la cerca."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Cap resultat per a “%s”"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Obre amb els gràfics %s"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "Suprimeix-la de l'acobla_dor"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "Afegeix-la a l'acobla_dor"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "Desinstal·la"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "Mostra-ho al Centre d'aplicacions"
 
@@ -93,10 +150,6 @@ msgstr "Cerca"
 msgid "Contacts"
 msgstr "Contactes"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internet"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Configuració"
@@ -104,10 +157,6 @@ msgstr "Configuració"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Accions de l'aplicació"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Altres"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -117,11 +166,11 @@ msgstr "Copia al porta-retalls"
 msgid "Copy selection to clipboard"
 msgstr "Copia la selecció al porta-retalls"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Executa"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "Executa una aplicació, una acció o un script"
 
@@ -185,16 +234,16 @@ msgstr "Executa una ordre"
 msgid "Find and execute arbitrary commands."
 msgstr "Trobeu i executeu ordres arbitràries."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Cerqueu i executeu aplicacions l'ordinador."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Obre amb %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Obre la selecció actual amb %s"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-04-09 03:12+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
+"PO-Revision-Date: 2021-09-11 03:37+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/he/>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "יישומים"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "פתיחה וחיפוש יישומים"
 
@@ -44,32 +44,89 @@ msgstr "חיפוש יישומים"
 msgid "Clear all"
 msgstr "לפנות הכול"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "עזרים"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "גישה אוניברסלית"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "תכנות"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "חינוך"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "מדע"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "משחקים"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "גרפיקה"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "אינטרנט"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "שמע ווידאו"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "כלי משרד"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "כלי מערכת"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "אחר"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "הרצת פקודה זו…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "בררת מחדל"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "נסו לשנות את מונחי החיפוש."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "אין תוצאות עבור „%s”"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "פתיחה באמצעות גרפיקת %s"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "הסרה מ_מעגן"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "הוספה ל_מעגן"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "הסרה"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "הצגה במרכז התכנה"
 
@@ -93,10 +150,6 @@ msgstr "חיפוש"
 msgid "Contacts"
 msgstr "אנשי קשר"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "אינטרנט"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "הגדרות"
@@ -104,10 +157,6 @@ msgstr "הגדרות"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "פעולות יישומים"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "אחר"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -117,11 +166,11 @@ msgstr "העתקה ללוח הגזירים"
 msgid "Copy selection to clipboard"
 msgstr "העתקת הבחירה ללוח הגזירים"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "הפעלה"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "הפעלת יישום, פעולה או תסריט"
 
@@ -185,16 +234,16 @@ msgstr "הפעלת פקודה"
 msgid "Find and execute arbitrary commands."
 msgstr "מציאת פקודות שרירותיות והפעלתן."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "חיפוש אחר יישומים והרצתם במחשב."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "פתיחה באמצעות %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "פתיחת הבחירה הנוכחית באמצעות %s"

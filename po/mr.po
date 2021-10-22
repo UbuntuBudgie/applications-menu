@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
 "PO-Revision-Date: 2019-09-29 04:23+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,11 +15,11 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "अनुप्रयोग"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "उघडा आणि अॅप्स शोधा"
 
@@ -39,32 +39,92 @@ msgstr "अनुप्रयोग शोधा"
 msgid "Clear all"
 msgstr "सर्व हटवा"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:102
+#, fuzzy
+#| msgid "Actions"
+msgid "Education"
+msgstr "क्रिया"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "इंटरनेट"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "इतर"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "हा आदेश चालवा …"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr ""
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "शोध संज्ञा बदलण्याचा प्रयत्न करा."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" साठी कोणतेही परिणाम नाहीत"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "%s वापरून उघडा"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "(_D)डॉकमधून काढा"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "(_D)डॉकमध्ये जोडा"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "विस्थापित (अनइंस्टॉल) करा"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "अ‍ॅप सेंटरमध्ये पहा"
 
@@ -88,10 +148,6 @@ msgstr "शोधा"
 msgid "Contacts"
 msgstr "संपर्क"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "इंटरनेट"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "सेटिंग्ज"
@@ -99,10 +155,6 @@ msgstr "सेटिंग्ज"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "अप्लिकेशन क्रिया"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "इतर"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -112,11 +164,11 @@ msgstr "क्लिपबोर्डवर कॉपी करा"
 msgid "Copy selection to clipboard"
 msgstr "निवडलेले क्लिपबोर्डवर कॉपी करा"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "चालवा"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "अप्लिकेशन, क्रिया किंवा स्क्रिप्ट चालवा"
 
@@ -182,16 +234,16 @@ msgstr "कमांड चालवा"
 msgid "Find and execute arbitrary commands."
 msgstr "अनियंत्रित आदेश शोधा आणि चालवा."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "आपल्या संगणकावर अनुप्रयोग शोधा आणि चालवा."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "%s वापरून उघडा"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "सध्या निवडलेले %s वापरून उघडा"

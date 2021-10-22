@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-04-14 12:44+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
+"PO-Revision-Date: 2021-09-21 18:27+0000\n"
+"Last-Translator: Rafael Bautista Martínez <iuninefrendor@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/es/>\n"
 "Language: es\n"
@@ -20,17 +20,17 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Aplicaciones"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Abrir y buscar aplicaciones"
 
 #: src/SlingshotView.vala:60
 msgid "View as Grid"
-msgstr "Ver como rejilla"
+msgstr "Ver como cuadrícula"
 
 #: src/SlingshotView.vala:63
 msgid "View by Category"
@@ -44,32 +44,90 @@ msgstr "Buscar aplicaciones"
 msgid "Clear all"
 msgstr "Vaciar"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Accesorios"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Accesibilidad"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Programación"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Educación"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Ciencia"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Juegos"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Imágenes"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Sonido y vídeo"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Oficina"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Herramientas de sistema"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Otro"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Ejecutar esta orden…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "Por defecto"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "Pruebe a cambiar los términos de búsqueda."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Sin resultados para «%s»"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "Abrir con %s"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "Quitar del _dock"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "Añadir al _dock"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "Desinstalar"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "Ver en el Centro de aplicaciones"
 
@@ -93,10 +151,6 @@ msgstr "Buscar"
 msgid "Contacts"
 msgstr "Contactos"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internet"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Configuración"
@@ -104,10 +158,6 @@ msgstr "Configuración"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Acciones de la aplicación"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Otro"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -117,11 +167,11 @@ msgstr "Copiar en el portapapeles"
 msgid "Copy selection to clipboard"
 msgstr "Copiar selección en el portapapeles"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Ejecutar"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "Ejecutar una aplicación, acción o secuencia de órdenes"
 
@@ -170,7 +220,7 @@ msgstr "bc no está instalado"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
 msgid "Click to copy result to clipboard"
-msgstr "Haga clic para copiar el resultado al portapapeles"
+msgstr "Pulse para copiar el resultado en el portapapeles"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -185,16 +235,16 @@ msgstr "Ejecutar orden"
 msgid "Find and execute arbitrary commands."
 msgstr "Encontrar y ejecutar órdenes arbitrarias."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Buscar y ejecutar aplicaciones en su equipo."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Abrir la selección actual con %s"

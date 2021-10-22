@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2021-04-09 11:08+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
+"PO-Revision-Date: 2021-09-11 03:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/ja/>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "開いてアプリを検索します"
 
@@ -44,32 +44,89 @@ msgstr "アプリを検索"
 msgid "Clear all"
 msgstr "すべて消去"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "アクセサリー"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "ユニバーサルアクセス"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "プログラミング"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "教育"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "科学"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "ゲーム"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "グラフィックス"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "インターネット"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "サウンドとビデオ"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "オフィス"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "システムツール"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "そのほか"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "このコマンドを実行…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "デフォルト"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "検索用語を変更してみてください。"
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” という検索結果はありません"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "%s グラフィックスを使用して開く"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "ドックから削除(_D)"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "ドックに追加(_D)"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "アンインストール"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "AppCenter で表示"
 
@@ -93,10 +150,6 @@ msgstr "検索"
 msgid "Contacts"
 msgstr "連絡先"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "インターネット"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "設定"
@@ -104,10 +157,6 @@ msgstr "設定"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "アプリケーションの操作"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "そのほか"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -117,11 +166,11 @@ msgstr "クリップボードへコピー"
 msgid "Copy selection to clipboard"
 msgstr "選択範囲をクリップボードへコピーします"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "実行"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "アプリケーション、アクションやスクリプトを実行します"
 
@@ -185,16 +234,16 @@ msgstr "コマンドを実行します"
 msgid "Find and execute arbitrary commands."
 msgstr "任意のコマンドを検索して実行します。"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "コンピューター上のアプリケーションを検索して実行します。"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "%s で開く"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "現在選択しているものを %s で開きます"

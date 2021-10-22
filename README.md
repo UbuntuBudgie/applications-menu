@@ -8,10 +8,8 @@ Lightweight and stylish app launcher.
 ## Building and Installation
 
 You'll need the following dependencies:
-* libappstream-dev
 * libgee-0.8-dev
-* libgnome-menu-3-dev
-* libgranite-dev >= 5.2.1
+* libgranite-dev >= 6.1.0
 * libgtk-3-dev
 * libhandy-1-dev >= 0.83.0
 * libjson-glib-dev

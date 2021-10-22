@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slingshot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
-"PO-Revision-Date: 2019-11-05 13:24+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
+"PO-Revision-Date: 2021-09-14 11:02+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu/fi/>\n"
@@ -17,14 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 msgid "Applications"
 msgstr "Sovellukset"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr "Avaa ja etsi sovelluksia"
 
@@ -44,32 +44,89 @@ msgstr "Etsi sovelluksia"
 msgid "Clear all"
 msgstr "Tyhjennä kaikki"
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr "Apuohjelmat"
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr "Esteettömyys"
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr "Ohjelmointi"
+
+#: src/Backend/AppSystem.vala:102
+msgid "Education"
+msgstr "Koulutus"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr "Tieteet"
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr "Pelit"
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr "Grafiikka"
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "Internet"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr "Ääni ja video"
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr "Toimisto"
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr "Järjestelmätyökalut"
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "Muu"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "Suorita komento…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr "Oletus"
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "Yritä käyttää eri hakuehtoja."
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ei tuloksia haulle “%s”"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, c-format
+msgid "Open with %s Graphics"
+msgstr "Avaa käyttäen \"%s\"-grafiikkaa"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "Poista t_elakasta"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "Lisää _telakkaan"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "Poista asennus"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 msgid "View in AppCenter"
 msgstr "Näytä sovelluskeskuksessa"
 
@@ -93,10 +150,6 @@ msgstr "Etsi"
 msgid "Contacts"
 msgstr "Yhteystiedot"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "Internet"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "Asetukset"
@@ -104,10 +157,6 @@ msgstr "Asetukset"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "Sovellustoiminnot"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "Muu"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -117,11 +166,11 @@ msgstr "Kopioi leikepöydälle"
 msgid "Copy selection to clipboard"
 msgstr "Kopioi valinta leikepöydälle"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "Suorita"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "Suorita sovellus, toiminto tai komentosarja"
 
@@ -169,10 +218,8 @@ msgid "bc is not installed"
 msgstr "Pakettia bc ei ole asennettu"
 
 #: src/synapse-plugins/calculator-plugin.vala:119
-#, fuzzy
-#| msgid "Copy selection to clipboard"
 msgid "Click to copy result to clipboard"
-msgstr "Kopioi valinta leikepöydälle"
+msgstr "Napsauta kopioidaksesi tuloksen leikepöydälle"
 
 #: src/synapse-plugins/command-plugin.vala:39
 #, c-format
@@ -187,16 +234,16 @@ msgstr "Suorita komento"
 msgid "Find and execute arbitrary commands."
 msgstr "Etsi ja suorita komentoja."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "Etsi ja suorita koneelle asennettuja sovelluksia."
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "Avaa sovelluksella %s"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "Avaa nykyisen valinnan sovelluksessa %s"

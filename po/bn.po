@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 12:56+0000\n"
+"POT-Creation-Date: 2021-10-22 20:58+0000\n"
 "PO-Revision-Date: 2017-12-28 00:18+0000\n"
 "Last-Translator: Subhadeep Jasu <subhajasu@gmail.com>\n"
 "Language-Team: Bengali <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,12 +15,12 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 05:23+0000\n"
 
-#: src/Indicator.vala:73 src/Widgets/SearchItem.vala:38
+#: src/Indicator.vala:82 src/Widgets/SearchItem.vala:38
 #, fuzzy
 msgid "Applications"
 msgstr "অ্যাপ্লিকেশন"
 
-#: src/Indicator.vala:116
+#: src/Indicator.vala:139
 msgid "Open and search apps"
 msgstr ""
 
@@ -40,32 +40,92 @@ msgstr "এপ্স অনুসন্ধান করুন"
 msgid "Clear all"
 msgstr ""
 
-#: src/Backend/App.vala:78
+#: src/Backend/AppSystem.vala:77
+msgid "Accessories"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:87
+msgid "Universal Access"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:96
+msgid "Programming"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:102
+#, fuzzy
+#| msgid "Actions"
+msgid "Education"
+msgstr "ক্রিয়াকলাপ"
+
+#: src/Backend/AppSystem.vala:109
+msgid "Science"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:115
+msgid "Games"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:121
+msgid "Graphics"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:127 src/Widgets/SearchItem.vala:49
+msgid "Internet"
+msgstr "ইন্টারনেট"
+
+#: src/Backend/AppSystem.vala:133
+msgid "Sound & Video"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:139
+msgid "Office"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:145
+msgid "System Tools"
+msgstr ""
+
+#: src/Backend/AppSystem.vala:153 src/Widgets/SearchItem.vala:55
+msgid "Other"
+msgstr "অন্য"
+
+#: src/Backend/App.vala:88
 msgid "Run this command…"
 msgstr "এই কমান্ডটি  রান করুন…"
+
+#: src/Backend/SwitcherooControl.vala:81 src/Backend/SwitcherooControl.vala:109
+msgid "Default"
+msgstr ""
 
 #: src/Views/SearchView.vala:36
 msgid "Try changing search terms."
 msgstr "অনুসন্ধানের জন্য বাক্যগুলি পাল্টে দেখুন।"
 
-#: src/Views/SearchView.vala:104
+#: src/Views/SearchView.vala:128
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" জন্য কোনো ফলাফল পাওয়া যায়নি"
 
-#: src/Widgets/AppContextMenu.vala:81
+#: src/Widgets/AppContextMenu.vala:78
+#, fuzzy, c-format
+#| msgid "Open with %s"
+msgid "Open with %s Graphics"
+msgstr "%s_এর দ্বারা খুলুন"
+
+#: src/Widgets/AppContextMenu.vala:109
 msgid "Remove from _Dock"
 msgstr "_ডক থেকে অপসারণ করুন"
 
-#: src/Widgets/AppContextMenu.vala:83
+#: src/Widgets/AppContextMenu.vala:111
 msgid "Add to _Dock"
 msgstr "_ডকে যোগ করুন"
 
-#: src/Widgets/AppContextMenu.vala:97
+#: src/Widgets/AppContextMenu.vala:125
 msgid "Uninstall"
 msgstr "আনইনস্টল"
 
-#: src/Widgets/AppContextMenu.vala:102
+#: src/Widgets/AppContextMenu.vala:130
 #, fuzzy
 msgid "View in AppCenter"
 msgstr "অ্যাপসেন্টার"
@@ -90,10 +150,6 @@ msgstr "অনুসন্ধান"
 msgid "Contacts"
 msgstr "যোগাযোগ"
 
-#: src/Widgets/SearchItem.vala:49
-msgid "Internet"
-msgstr "ইন্টারনেট"
-
 #: src/Widgets/SearchItem.vala:51
 msgid "Settings"
 msgstr "বিন্যাস"
@@ -101,10 +157,6 @@ msgstr "বিন্যাস"
 #: src/Widgets/SearchItem.vala:53
 msgid "Application Actions"
 msgstr "অ্যাপ্লিকেশনের ক্রিয়াকলাপ"
-
-#: src/Widgets/SearchItem.vala:55
-msgid "Other"
-msgstr "অন্য"
 
 #: src/synapse-core/Actions/ClipboardCopyAction.vala:25
 msgid "Copy to Clipboard"
@@ -114,11 +166,11 @@ msgstr "ক্লিপবোর্ডে অনুলিপি করুন"
 msgid "Copy selection to clipboard"
 msgstr "ক্লিপবোর্ডে সেলেক্শনটি অনুলিপি করুন"
 
-#: src/synapse-core/Actions/RunnerAction.vala:25
+#: src/synapse-core/Actions/RunnerAction.vala:33
 msgid "Run"
 msgstr "চালু করুন"
 
-#: src/synapse-core/Actions/RunnerAction.vala:26
+#: src/synapse-core/Actions/RunnerAction.vala:34
 msgid "Run an application, action or script"
 msgstr "অ্যাপ্লিকেশন, কার্যকলাপ বা স্ক্রিপ্ট চালান"
 
@@ -185,16 +237,16 @@ msgstr "কম্যান্ড চালনা করুন"
 msgid "Find and execute arbitrary commands."
 msgstr "ইচ্ছামত কমান্ডস খুজুন এবং চালান।"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:115
+#: src/synapse-plugins/desktop-file-plugin.vala:116
 msgid "Search for and run applications on your computer."
 msgstr "এই কম্পিউটারের  অ্যাপ্লিকেশনগুলি খুজুন এবং চালনা করুন।"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:318
+#: src/synapse-plugins/desktop-file-plugin.vala:319
 #, c-format
 msgid "Open with %s"
 msgstr "%s_এর দ্বারা খুলুন"
 
-#: src/synapse-plugins/desktop-file-plugin.vala:320
+#: src/synapse-plugins/desktop-file-plugin.vala:321
 #, c-format
 msgid "Opens current selection using %s"
 msgstr "%s ব্যবহার করে বর্তমান নির্বাচনটি খুলুন"
