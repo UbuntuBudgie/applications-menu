@@ -114,12 +114,13 @@ dependencies = [
 
 c_args = [
     '-DHANDY_USE_UNSTABLE_API',
+    '-include',
+    'config.h',
 ]
 
 shared_module(
     'slingshot',
     sources,
-    config_file,
     dependencies: dependencies,
     vala_args: [
         # Make gresource work
