@@ -85,7 +85,7 @@ public class Slingshot.Backend.AppSystem : Object {
 
         categories_cache.add (
             new Category (_("Universal Access")) {
-                included_categories = { "Accessibility" },
+                included_categories = { "Accessibility" }
                 //excluded_categories = { "Settings" },
                 // Do not display OnBoard; it belongs to a11y plug
                 //excluded_applications = { "onboard.desktop" }
@@ -146,7 +146,7 @@ public class Slingshot.Backend.AppSystem : Object {
             new Category (_("System Tools")) {
                 included_categories = { "System", "Administration", "Settings" },
                 excluded_categories = { "Game" },
-                excluded_applications = { "htop.desktop", "onboard.desktop", "onboard-settings.desktop" },
+                excluded_applications = { "htop.desktop", "onboard.desktop", "onboard-settings.desktop" }
             }
         );
 

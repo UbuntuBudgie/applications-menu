@@ -54,7 +54,7 @@ public class Slingshot.Backend.Category : Object {
         }
 
         bool found_inclusion_category = false;
-        foreach (unowned var category in categories.split (";")) {
+        foreach (unowned string category in categories.split (";")) {
             if (category in excluded_categories) {
                 debug ("Excluding %s from %s because it has an excluded category (%s)", app.get_name (), name, category);
                 return false;
