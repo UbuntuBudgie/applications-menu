@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 20:58+0000\n"
-"PO-Revision-Date: 2021-09-10 21:07+0000\n"
+"POT-Creation-Date: 2021-10-26 18:34+0000\n"
+"PO-Revision-Date: 2021-10-27 04:30+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/uk/>\n"
@@ -29,14 +29,12 @@ msgid "Open and search for apps"
 msgstr "Відкривайте та знаходьте застосунки"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Performance improvements"
-msgid "Improvements"
-msgstr "Поліпшення швидкодії"
+msgid "Improvements:"
+msgstr "Удосконалення:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show secondary click menu for search results"
-msgstr ""
+msgstr "Відкриття меню результатів пошуку правою кнопкою миші"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:26
@@ -51,8 +49,8 @@ msgid "Updated translations"
 msgstr "Оновлено переклади"
 
 #: data/applications-menu.appdata.xml.in:20
-msgid "New features"
-msgstr "Нові можливості"
+msgid "New features:"
+msgstr "Нові можливості:"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid ""
@@ -68,8 +66,8 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:50
 #: data/applications-menu.appdata.xml.in:64
 #: data/applications-menu.appdata.xml.in:72
-msgid "Minor updates"
-msgstr "Незначні оновлення"
+msgid "Minor updates:"
+msgstr "Незначні оновлення:"
 
 #: data/applications-menu.appdata.xml.in:34
 msgid "Show apps with no category under \"Other\""

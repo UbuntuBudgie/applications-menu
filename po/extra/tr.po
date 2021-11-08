@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 20:58+0000\n"
-"PO-Revision-Date: 2021-09-11 12:17+0000\n"
+"POT-Creation-Date: 2021-10-26 18:34+0000\n"
+"PO-Revision-Date: 2021-10-28 11:26+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/tr/>\n"
@@ -28,14 +28,12 @@ msgid "Open and search for apps"
 msgstr "Uygulamaları aç ve ara"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Performance improvements"
-msgid "Improvements"
-msgstr "Performans iyileştirmeleri"
+msgid "Improvements:"
+msgstr "İyileştirmeler:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show secondary click menu for search results"
-msgstr ""
+msgstr " "
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:26
@@ -50,8 +48,8 @@ msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
 #: data/applications-menu.appdata.xml.in:20
-msgid "New features"
-msgstr "Yeni özellikler"
+msgid "New features:"
+msgstr "Yeni özellikler:"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid ""
@@ -65,8 +63,8 @@ msgstr " "
 #: data/applications-menu.appdata.xml.in:50
 #: data/applications-menu.appdata.xml.in:64
 #: data/applications-menu.appdata.xml.in:72
-msgid "Minor updates"
-msgstr "Küçük güncellemeler"
+msgid "Minor updates:"
+msgstr "Küçük güncellemeler:"
 
 #: data/applications-menu.appdata.xml.in:34
 msgid "Show apps with no category under \"Other\""

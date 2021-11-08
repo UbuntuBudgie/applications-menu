@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 20:58+0000\n"
-"PO-Revision-Date: 2021-09-11 03:37+0000\n"
+"POT-Creation-Date: 2021-10-26 18:34+0000\n"
+"PO-Revision-Date: 2021-10-27 04:30+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ja/>\n"
@@ -28,14 +28,12 @@ msgid "Open and search for apps"
 msgstr "アプリを開いたり検索したりします"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Performance improvements"
-msgid "Improvements"
-msgstr "パフォーマンスの改善"
+msgid "Improvements:"
+msgstr "改善点:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show secondary click menu for search results"
-msgstr ""
+msgstr "検索結果の項目にも副クリックメニューを表示するように修正"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:26
@@ -50,8 +48,8 @@ msgid "Updated translations"
 msgstr "翻訳の更新"
 
 #: data/applications-menu.appdata.xml.in:20
-msgid "New features"
-msgstr "新機能"
+msgid "New features:"
+msgstr "新機能:"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid ""
@@ -67,7 +65,7 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:50
 #: data/applications-menu.appdata.xml.in:64
 #: data/applications-menu.appdata.xml.in:72
-msgid "Minor updates"
+msgid "Minor updates:"
 msgstr "軽微なアップデート:"
 
 #: data/applications-menu.appdata.xml.in:34

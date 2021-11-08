@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 20:58+0000\n"
-"PO-Revision-Date: 2021-09-12 04:42+0000\n"
+"POT-Creation-Date: 2021-10-26 18:34+0000\n"
+"PO-Revision-Date: 2021-10-29 13:29+0000\n"
 "Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "applications-menu-extra/ru/>\n"
@@ -29,14 +29,12 @@ msgid "Open and search for apps"
 msgstr "Открывайте и находите приложения"
 
 #: data/applications-menu.appdata.xml.in:11
-#, fuzzy
-#| msgid "Performance improvements"
-msgid "Improvements"
-msgstr "Улучшения производительности"
+msgid "Improvements:"
+msgstr "Улучшения:"
 
 #: data/applications-menu.appdata.xml.in:13
 msgid "Show secondary click menu for search results"
-msgstr ""
+msgstr "Отображение меню правой кнопки мыши для результатов поиска"
 
 #: data/applications-menu.appdata.xml.in:14
 #: data/applications-menu.appdata.xml.in:26
@@ -51,8 +49,8 @@ msgid "Updated translations"
 msgstr "Обновлены переводы"
 
 #: data/applications-menu.appdata.xml.in:20
-msgid "New features"
-msgstr "Новые возможности"
+msgid "New features:"
+msgstr "Новые возможности:"
 
 #: data/applications-menu.appdata.xml.in:22
 msgid ""
@@ -68,8 +66,8 @@ msgstr ""
 #: data/applications-menu.appdata.xml.in:50
 #: data/applications-menu.appdata.xml.in:64
 #: data/applications-menu.appdata.xml.in:72
-msgid "Minor updates"
-msgstr "Незначительные обновления"
+msgid "Minor updates:"
+msgstr "Незначительные обновления:"
 
 #: data/applications-menu.appdata.xml.in:34
 msgid "Show apps with no category under \"Other\""
