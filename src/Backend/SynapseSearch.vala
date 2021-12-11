@@ -26,7 +26,8 @@ namespace Slingshot.Backend {
             typeof (Synapse.DesktopFilePlugin),
             typeof (Synapse.LinkPlugin),
             typeof (Synapse.ControlPanelPlugin),
-            typeof (Synapse.SystemManagementPlugin)
+            typeof (Synapse.SystemManagementPlugin),
+            typeof (Synapse.FileBookmarkPlugin)
         };
 
         private static Synapse.DataSink? sink = null;
