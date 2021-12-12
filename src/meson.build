@@ -81,13 +81,11 @@ sources = [
     'synapse-core/result-set.vala',
     'synapse-core/utils.vala',
     zeitgeist_backend_source,
-
     'synapse-plugins/worker-link.vala',
     'synapse-plugins/calculator-plugin.vala',
     'synapse-plugins/command-plugin.vala',
     'synapse-plugins/desktop-file-plugin.vala',
     'synapse-plugins/file-bookmarks-plugin.vala',
-    'synapse-plugins/switchboard-plugin.vala',
     'synapse-plugins/system-managment.vala',
     'synapse-plugins/link-plugin.vala',
     'synapse-plugins/control-panel-plugin.vala',
