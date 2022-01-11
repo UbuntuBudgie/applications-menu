@@ -75,7 +75,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
             string gpu_name = switcheroo_control.get_gpu_name (prefers_non_default_gpu);
 
-            // Translators: This will display as either 'Open with Intel Graphics' or 'Open with 'NVidia Graphics'
+            // TRANSLATORS: This will display as either 'Open with Intel Graphics' or 'Open with 'NVidia Graphics'
             string label = _("Open with %s Graphics").printf (gpu_name);
 
             var menu_item = new Gtk.MenuItem.with_mnemonic (label);
