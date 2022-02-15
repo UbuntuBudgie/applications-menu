@@ -154,8 +154,13 @@ namespace Synapse {
                 }
 
                 is_hidden = !app_info.should_show ();
-                if ("gnome-control-center" in exec) {
-                    is_hidden = true; // hide all gnome-control-center items
+
+                string control_center = "gnome-control-center";
+                if (Environment.find_program_in_path("budgie-control-center") != null) {
+                    control_center = "budgie-control-center";
+                }
+                if (control_center in exec) {
+                    is_hidden = true; // hide all control-center items
                     is_control_panel=true;
                 }
                 comment = app_info.get_description () ?? "";

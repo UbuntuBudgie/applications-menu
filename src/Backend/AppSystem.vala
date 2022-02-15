@@ -170,8 +170,13 @@ public class Slingshot.Backend.AppSystem : Object {
                 continue;
             }
 
-            if ("gnome-control-center" in app.get_commandline() && app.get_commandline().length != "gnome-control-center".length) {
-                continue; // lets ignore all gnome-control-center items
+            string control_center = "gnome-control-center";
+
+            if (Environment.find_program_in_path("budgie-control-center") != null) {
+                control_center = "budgie-control-center";
+            }
+            if (control_center in app.get_commandline() && app.get_commandline().length != control_center.length) {
+                continue; // lets ignore all control-center items
             }
 
             if (app.get_commandline() == "plank") {
