@@ -51,7 +51,7 @@ if granite_dep.version().version_compare('>=6.0')
     add_project_arguments('--define=GRANITE6', language: 'vala')
 endif
 gobject_dep = dependency('gobject-2.0')
-libsoup_dep = dependency('libsoup-2.4')
+#libsoup_dep = dependency('libsoup-2.4')
 gio_unix_dep = dependency('gio-unix-2.0')
 json_glib_dep = dependency('json-glib-1.0')
 #switchboard_dep = dependency('switchboard-2.0')
