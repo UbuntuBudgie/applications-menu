@@ -102,7 +102,6 @@ dependencies = [
     gtk_dep,
     json_glib_dep,
     zeitgeist_dep,
-    libsoup_dep,
     plank_dep,
     budgie_dep,
     peas_dep,
