@@ -150,7 +150,7 @@ namespace Synapse {
             Idle.add_full (Priority.LOW, load_all_desktop_files.callback);
             yield;
 
-            var dfs = DesktopFileService.get_default ();
+            //var dfs = DesktopFileService.get_default ();
 
             /*foreach (DesktopFileInfo dfi in dfs.get_all_desktop_files ()) {
                 if (dfi.is_control_panel) {
@@ -363,7 +363,7 @@ namespace Synapse {
                 /* Initialize ow_list */
                 ow_list = new Gee.LinkedList<OpenWithAction> ();
                 mimetype_map[uri_match.mime_type] = ow_list;
-                var dfs = DesktopFileService.get_default ();
+                //var dfs = DesktopFileService.get_default ();
                 //var list_for_mimetype = dfs.get_desktop_files_for_type (uri_match.mime_type); DMOOPS
                 /* If there's more than one application, fill the ow list */
                 /*if (list_for_mimetype.size > 1) {

@@ -24,11 +24,11 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private DesktopAppInfo app_info;
 
     private bool has_system_item = false;
-    private string appstream_comp_id = "";
+    //private string appstream_comp_id = "";
 
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
-    private Gtk.MenuItem uninstall_menuitem;
-    private Gtk.MenuItem appcenter_menuitem;
+    //private Gtk.MenuItem uninstall_menuitem;
+    //private Gtk.MenuItem appcenter_menuitem;
 
 #if HAS_PLANK
     private static Plank.DBusClient plank_client;
@@ -131,22 +131,22 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
         show_all ();
     }
 
-    private void uninstall_menuitem_activate () {
-        /*var appcenter = Backend.AppCenter.get_default ();
+    /*private void uninstall_menuitem_activate () {
+        var appcenter = Backend.AppCenter.get_default ();
         if (appcenter.dbus == null || appstream_comp_id == "") {
             return;
-        }*/
+        }
 
         app_launched ();
 
-        /*appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
+        appcenter.dbus.uninstall.begin (appstream_comp_id, (obj, res) => {
             try {
                 appcenter.dbus.uninstall.end (res);
             } catch (GLib.Error e) {
                 warning (e.message);
             }
-        });*/
-    }
+        });
+    }*/
 
     /*private void open_in_appcenter () {
         AppInfo.launch_default_for_uri_async.begin ("appstream://" + appstream_comp_id, null, null, (obj, res) => {

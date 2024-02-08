@@ -33,31 +33,31 @@ namespace AppMenuApplet {
     {
 
         [GtkChild]
-        private Gtk.Switch? switch_menu_label;
+        private unowned Gtk.Switch? switch_menu_label;
 
         [GtkChild]
-        private Gtk.Entry? entry_label;
+        private unowned Gtk.Entry? entry_label;
 
         [GtkChild]
-        private Gtk.Entry? entry_icon_pick;
+        private unowned Gtk.Entry? entry_icon_pick;
 
         [GtkChild]
-        private Gtk.Button? button_icon_pick;
+        private unowned Gtk.Button? button_icon_pick;
 
         [GtkChild]
-        private Gtk.SpinButton spin_rows;
+        private unowned Gtk.SpinButton spin_rows;
 
         [GtkChild]
-        private Gtk.SpinButton spin_columns;
+        private unowned Gtk.SpinButton spin_columns;
 
         [GtkChild]
-        private Gtk.Switch? switch_powerstrip;
+        private unowned Gtk.Switch? switch_powerstrip;
 
         [GtkChild]
-        private Gtk.Switch? switch_rollover;
+        private unowned Gtk.Switch? switch_rollover;
 
         [GtkChild]
-        private Gtk.SpinButton spin_category_spacing;
+        private unowned Gtk.SpinButton spin_category_spacing;
 
         private GLib.Settings? settings;
         private static GLib.Settings appmenu_settings { get; private set; default = null; }
