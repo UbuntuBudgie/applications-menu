@@ -146,14 +146,13 @@ public class Slingshot.Backend.AppSystem : Object {
             new Category (_("System Tools")) {
                 included_categories = { "System", "Administration", "Settings" },
                 excluded_categories = { "Game" },
-                excluded_applications = { "htop.desktop", "onboard.desktop", "onboard-settings.desktop" }
+                excluded_applications = { "onboard-settings.desktop" }
             }
         );
 
         var other_category =
             new Category (_("Other"), true) {
                 excluded_categories = { "Core", "Screensaver", "Settings" },
-                excluded_applications = { "htop.desktop", "onboard.desktop", "org.gnome.FileRoller.desktop", "org.gnome.font-viewer.desktop" }
             };
 
         foreach (var app in GLib.AppInfo.get_all ()) {
