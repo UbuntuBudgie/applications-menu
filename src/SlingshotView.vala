@@ -185,6 +185,11 @@ public class Slingshot.SlingshotView : Gtk.Grid {
             grid_view.populate (app_system);
         });
 
+        settings.changed["show-terminal-apps"].connect_after(() => {
+            grid_view.populate (app_system);
+            category_view.setup_sidebar ();
+        });
+
         powerstrip.invoke_action.connect(() => {
             close_indicator ();
         });

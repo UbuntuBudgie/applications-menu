@@ -40,6 +40,7 @@ public class Slingshot.Backend.App : Object {
     public string generic_name { get; private set; default = ""; }
     public bool prefers_default_gpu { get; private set; default = false; }
     public AppType app_type { get; private set; default = AppType.APP; }
+    public bool terminal { get; private set; default = false; }
 
 #if HAS_PLANK
     private string? unity_sender_name = null;
@@ -69,6 +70,7 @@ public class Slingshot.Backend.App : Object {
         categories = info.get_categories ();
         generic_name = info.get_generic_name ();
         prefers_default_gpu = !info.get_boolean ("PrefersNonDefaultGPU");
+        terminal = info.get_boolean ("Terminal");
 
         var desktop_icon = info.get_icon ();
         if (desktop_icon != null) {
