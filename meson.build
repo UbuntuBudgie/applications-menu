@@ -64,7 +64,13 @@ else
 endif
 #wingpanel_dep = dependency('wingpanel-2.0', version: '>=2.1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
-budgie_dep = dependency('budgie-1.0')
+for_wayland = get_option('for-wayland')
+
+if for_wayland == false
+    budgie_dep = dependency('budgie-1.0')
+else
+    budgie_dep = dependency('budgie-2.0')
+endif
 peas_dep = dependency('libpeas-gtk-1.0')
 
 plank_dep = dependency('plank', required: false)
