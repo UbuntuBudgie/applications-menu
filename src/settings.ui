@@ -181,7 +181,19 @@
       </packing>
     </child>
     <child>
-      <object class="GtkSwitch" id="switch_powerstrip">
+      <object class="GtkLabel">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Show Terminal Applications</property>
+        <property name="xalign">0</property>
+      </object>
+      <packing>
+        <property name="left_attach">0</property>
+        <property name="top_attach">5</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSwitch" id="show_terminal_apps">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="halign">end</property>
@@ -189,6 +201,17 @@
       <packing>
         <property name="left_attach">1</property>
         <property name="top_attach">5</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSwitch" id="switch_powerstrip">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="halign">end</property>
+      </object>
+      <packing>
+        <property name="left_attach">1</property>
+        <property name="top_attach">6</property>
       </packing>
     </child>
     <child>
@@ -200,7 +223,7 @@
       </object>
       <packing>
         <property name="left_attach">0</property>
-        <property name="top_attach">5</property>
+        <property name="top_attach">6</property>
       </packing>
     </child>
     <child>
@@ -212,7 +235,7 @@
       </object>
       <packing>
         <property name="left_attach">0</property>
-        <property name="top_attach">6</property>
+        <property name="top_attach">7</property>
       </packing>
     </child>
     <child>
@@ -223,7 +246,7 @@
       </object>
       <packing>
         <property name="left_attach">1</property>
-        <property name="top_attach">6</property>
+        <property name="top_attach">7</property>
       </packing>
     </child>
     <child>
@@ -236,7 +259,7 @@ Spacing</property>
       </object>
       <packing>
         <property name="left_attach">0</property>
-        <property name="top_attach">7</property>
+        <property name="top_attach">8</property>
       </packing>
     </child>
     <child>
@@ -251,7 +274,7 @@ Spacing</property>
       </object>
       <packing>
         <property name="left_attach">1</property>
-        <property name="top_attach">7</property>
+        <property name="top_attach">8</property>
       </packing>
     </child>
   </template>

@@ -28,5 +28,10 @@
             <range min="-15" max="15"/>
             <summary>Spacing size around each category name</summary>
         </key>
+        <key name="show-terminal-apps" type="b">
+            <default>false</default>
+            <summary>Show terminal applications</summary>
+            <description>Show applications whose .desktop file contains 'Terminal=true'.</description>
+        </key>
 	</schema>
 </schemalist>

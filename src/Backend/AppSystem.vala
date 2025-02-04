@@ -166,10 +166,6 @@ public class Slingshot.Backend.AppSystem : Object {
                 continue;
             }
 
-            if (desktop_app.get_boolean ("Terminal")) {
-                continue;
-            }
-
             string control_center = "gnome-control-center";
 
             if (Environment.find_program_in_path("budgie-control-center") != null) {

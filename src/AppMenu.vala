@@ -51,6 +51,9 @@ namespace AppMenuApplet {
         private unowned Gtk.SpinButton spin_columns;
 
         [GtkChild]
+        private unowned Gtk.Switch? show_terminal_apps;
+
+        [GtkChild]
         private unowned Gtk.Switch? switch_powerstrip;
 
         [GtkChild]
@@ -74,6 +77,7 @@ namespace AppMenuApplet {
             settings.bind("menu-icon", entry_icon_pick, "text", SettingsBindFlags.DEFAULT);
             appmenu_settings.bind("columns", spin_columns, "value", SettingsBindFlags.DEFAULT);
             appmenu_settings.bind("rows", spin_rows, "value", SettingsBindFlags.DEFAULT);
+            appmenu_settings.bind("show-terminal-apps", show_terminal_apps, "active", SettingsBindFlags.DEFAULT);
             appmenu_settings.bind("enable-powerstrip", switch_powerstrip, "active", SettingsBindFlags.DEFAULT);
             appmenu_settings.bind("rollover-menu", switch_rollover, "active", SettingsBindFlags.DEFAULT);
             appmenu_settings.bind("category-spacing", spin_category_spacing, "value", SettingsBindFlags.DEFAULT);

@@ -88,6 +88,9 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         paginator.scroll_to (current_grid);
 
         foreach (Backend.App app in app_system.get_apps_by_name ()) {
+            if (!settings.get_boolean("show-terminal-apps") && app.terminal )
+                continue;
+
             var app_button = new Widgets.AppButton (app);
             app_button.app_launched.connect (() => app_launched ());
 

@@ -295,7 +295,7 @@ public class Slingshot.Widgets.CategoryView : Gtk.EventBox {
         unowned CategoryRow category_row = (CategoryRow) category_switcher.get_selected_row ();
         if (category_row != null) {
             foreach (Backend.App app in view.app_system.apps[category_row.cat_name]) {
-                if (row.app_id == app.desktop_id) {
+                if (row.app_id == app.desktop_id && !(app.terminal && !settings.get_boolean("show-terminal-apps"))) {
                     return true;
                 }
             }
