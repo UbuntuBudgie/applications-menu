@@ -44,6 +44,7 @@ sources = [
     'Backend/SynapseSearch.vala',
     'Backend/SwitcherooControl.vala',
     'Backend/FavoritesManager.vala',
+    'Backend/SessionManager.vala',
 
     'Views/CategoryView.vala',
     'Views/GridView.vala',

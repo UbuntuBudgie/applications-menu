@@ -12,8 +12,7 @@ public class Slingshot.Widgets.FavoritesSidebar : Gtk.Box {
 
     private Gtk.ListBox favorites_list;
     private Gtk.Button session_button;
-    private AppMenu.PowerStrip powerstrip;
-    private Budgie.Popover? session_popover = null;
+    private Gtk.Menu? session_menu = null;
     private Backend.FavoritesManager favorites_manager;
     private Backend.AppSystem app_system;
 
@@ -54,26 +53,8 @@ public class Slingshot.Widgets.FavoritesSidebar : Gtk.Box {
         pack_start (separator, false, false, 0);
         pack_start (session_box, false, false, 0);
 
-        // Create powerstrip for session popover
-        powerstrip = new AppMenu.PowerStrip (Gtk.Orientation.VERTICAL);
-        powerstrip.invoke_action.connect (() => {
-            if (session_popover != null) {
-                session_popover.hide ();
-            }
-            app_launched ();
-        });
-
-        // Setup popover
-        session_popover = new Budgie.Popover (session_button);
-        session_popover.add (powerstrip);
-        powerstrip.show_all ();
-
         session_button.clicked.connect (() => {
-            if (session_popover.get_visible ()) {
-                session_popover.hide ();
-            } else {
-                session_popover.show_all ();
-            }
+            show_session_menu ();
         });
 
         favorites_list.row_activated.connect ((row) => {
@@ -123,6 +104,58 @@ public class Slingshot.Widgets.FavoritesSidebar : Gtk.Box {
         }
 
         favorites_list.show_all ();
+    }
+
+    private void show_session_menu () {
+        if (session_menu != null) {
+            session_menu.destroy ();
+        }
+
+        session_menu = new Gtk.Menu ();
+        var session_manager = Backend.SessionManager.get_default ();
+
+        var shutdown_item = new Gtk.MenuItem.with_label (_("Shut Down"));
+        shutdown_item.activate.connect (() => {
+            session_manager.shutdown ();
+            app_launched ();
+        });
+        session_menu.add (shutdown_item);
+
+        var suspend_item = new Gtk.MenuItem.with_label (_("Suspend"));
+        suspend_item.activate.connect (() => {
+            session_manager.suspend ();
+            app_launched ();
+        });
+        session_menu.add (suspend_item);
+
+        var restart_item = new Gtk.MenuItem.with_label (_("Restart"));
+        restart_item.activate.connect (() => {
+            session_manager.restart ();
+            app_launched ();
+        });
+        session_menu.add (restart_item);
+
+        var lock_item = new Gtk.MenuItem.with_label (_("Lock"));
+        lock_item.activate.connect (() => {
+            session_manager.lock ();
+            app_launched ();
+        });
+        session_menu.add (lock_item);
+
+        var logout_item = new Gtk.MenuItem.with_label (_("Log Out"));
+        logout_item.activate.connect (() => {
+            session_manager.logout ();
+            app_launched ();
+        });
+        session_menu.add (logout_item);
+
+        session_menu.show_all ();
+        session_menu.popup_at_widget (
+            session_button,
+            Gdk.Gravity.NORTH_EAST,
+            Gdk.Gravity.SOUTH_WEST,
+            null
+        );
     }
 
     private bool create_context_menu (Gdk.Event event, FavoriteRow? row) {
