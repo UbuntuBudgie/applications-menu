@@ -31,6 +31,7 @@ public class Slingshot.Widgets.Switcher : Gtk.Grid {
 #else
     private Hdy.Paginator paginator;
 #endif
+    private unowned Slingshot.Widgets.Grid? grid_view;
 
     construct {
         halign = Gtk.Align.CENTER;
@@ -41,9 +42,9 @@ public class Slingshot.Widgets.Switcher : Gtk.Grid {
     }
 
 #if HANDY1
-    public void set_paginator (Hdy.Carousel paginator) {
+    public void set_paginator (Hdy.Carousel paginator, Slingshot.Widgets.Grid? grid_view = null) {
 #else
-    public void set_paginator (Hdy.Paginator paginator) {
+    public void set_paginator (Hdy.Paginator paginator, Slingshot.Widgets.Grid? grid_view = null) {
 #endif
         if (this.paginator != null) {
             get_children ().foreach ((child) => {
@@ -52,6 +53,7 @@ public class Slingshot.Widgets.Switcher : Gtk.Grid {
         }
 
         this.paginator = paginator;
+        this.grid_view = grid_view;
         foreach (var child in paginator.get_children ()) {
             add_child (child);
         }
@@ -60,7 +62,7 @@ public class Slingshot.Widgets.Switcher : Gtk.Grid {
     }
 
     private void add_child (Gtk.Widget widget) {
-        var button = new PageChecker (paginator, widget);
+        var button = new PageChecker (paginator, widget, grid_view);
         add (button);
     }
 
