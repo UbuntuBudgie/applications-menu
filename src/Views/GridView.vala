@@ -22,23 +22,24 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     private struct Page {
         public uint rows;
         public uint columns;
-        public int number;
     }
 
-    private Gtk.Grid current_grid;
     private Gtk.Widget? focused_widget;
     private Gee.HashMap<int, Gtk.Grid> grids;
+    private Gee.HashSet<int> filled_pages;
+    private Gee.ArrayList<Backend.App> filtered_apps;
 #if HANDY1
     private Hdy.Carousel paginator;
 #else
     private Hdy.Paginator paginator;
 #endif
     private Page page;
+    private int apps_per_page = 1;
+    private int total_page_count = 1;
+    private uint background_fill_source = 0;
 
     private int focused_column;
     private int focused_row;
-    private uint current_row = 0;
-    private uint current_col = 0;
 
     private static GLib.Settings settings { get; private set; default = null; }
     static construct {
@@ -48,7 +49,6 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     construct {
         page.rows = 3;
         page.columns = 5;
-        page.number = 1;
 
 #if HANDY1
         paginator = new Hdy.Carousel ();
@@ -58,7 +58,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         paginator.expand = true;
 
         var page_switcher = new Widgets.Switcher ();
-        page_switcher.set_paginator (paginator);
+        page_switcher.set_paginator (paginator, this);
 
         orientation = Gtk.Orientation.VERTICAL;
         row_spacing = 24;
@@ -67,75 +67,156 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
         add (page_switcher);
 
         grids = new Gee.HashMap<int, Gtk.Grid> (null, null);
-        create_new_grid ();
-        go_to_number (1);
+        filled_pages = new Gee.HashSet<int> ();
+        filtered_apps = new Gee.ArrayList<Backend.App> ();
+
+        // Check when switching to specific pages rather then doing
+        // things at a page at a time
+        paginator.notify["position"].connect (() => {
+            ensure_page_filled ((int) Math.round (paginator.position) + 1);
+        });
     }
 
     public void populate (Backend.AppSystem app_system) {
+        int app_count = 0;
         foreach (Gtk.Grid grid in grids.values) {
             grid.destroy ();
         }
 
         grids.clear ();
+        filled_pages = new Gee.HashSet<int> ();
+        filtered_apps = new Gee.ArrayList<Backend.App> ();
 
         page.rows = settings.get_int("rows");
         page.columns = settings.get_int("columns");
-
-        current_row = 0;
-        current_col = 0;
-        page.number = 1;
-        create_new_grid ();
-        paginator.scroll_to (current_grid);
+        apps_per_page = int.max (1, (int) (page.rows * page.columns));
 
         foreach (Backend.App app in app_system.get_apps_by_name ()) {
-            if (!settings.get_boolean("show-terminal-apps") && app.terminal )
+            if (!settings.get_boolean("show-terminal-apps") && app.terminal ) {
                 continue;
+            }
+            filtered_apps.add (app);
+        }
+
+        total_page_count = int.max (1,
+            (int) Math.ceil ((double) filtered_apps.size / (double) apps_per_page));
+
+        // Build every page's empty container up front so the page switcher / dot count is accurate
+        // right away. Only the currently-visible page gets its real
+        // AppButtons attached now; the rest are filled lazily in
+        // ensure_page_filled () the first time the user navigates there.
+        // Building every page's AppButtons immediately is
+        // causing big delays from recent changes in 26.10 - monitor this
+        // in later versions to see if we can revert this
+        for (int number = 1; number <= total_page_count; number++) {
+            create_new_grid (number);
+        }
+
+        ensure_page_filled (1);
+        paginator.scroll_to (grids.get (1));
+        show_all ();
+        //schedule_background_fill ();
+    }
+
+    private void create_new_grid (int number) {
+        // Grid properties
+        var grid = new Gtk.Grid ();
+        grid.expand = true;
+        grid.row_homogeneous = true;
+        grid.column_homogeneous = true;
+        grid.margin_start = 12;
+        grid.margin_end = 12;
+
+        grid.row_spacing = 24;
+        grid.column_spacing = 0;
+        grids.set (number, grid);
+        paginator.add (grid);
+        // Fake grids in case there are not enough apps to fill the grid
+        for (var row = 0; row < page.rows; row++)
+            for (var column = 0; column < page.columns; column++)
+                grid.attach (new Gtk.Grid (), column, row, 1, 1);
+    }
+
+    // Attaches real AppButtons to an already-built (placeholder) page,
+    // the first time that page is actually navigated to. No-op if the
+    // page has already been filled.
+    private void ensure_page_filled (int number) {
+        if (number < 1 || number > total_page_count || filled_pages.contains (number)) {
+            return;
+        }
+
+        Gtk.Grid? grid = grids.get (number);
+        if (grid == null) {
+            return;
+        }
+
+        int start = (number - 1) * apps_per_page;
+        int end = int.min (start + apps_per_page, filtered_apps.size);
+
+        int col = 0;
+        int row = 0;
+
+        for (int i = start; i < end; i++) {
+            Backend.App app = filtered_apps.get (i);
 
             var app_button = new Widgets.AppButton (app);
             app_button.app_launched.connect (() => app_launched ());
 
-            if (current_col == page.columns) {
-                current_col = 0;
-                current_row++;
-            }
+            grid.get_child_at (col, row).destroy ();
+            grid.attach (app_button, col, row, 1, 1);
 
-            if (current_row == page.rows) {
-                page.number++;
-                create_new_grid ();
-                current_row = 0;
+            col++;
+            if (col == (int) page.columns) {
+                col = 0;
+                row++;
             }
-
-            current_grid.get_child_at ((int)current_col, (int)current_row).destroy ();
-            current_grid.attach (app_button, (int)current_col, (int)current_row, 1, 1);
-            current_col++;
-            current_grid.show ();
         }
 
-        show_all ();
+        grid.show_all ();
+        filled_pages.add (number);
     }
 
-    private void create_new_grid () {
-        // Grid properties
-        current_grid = new Gtk.Grid ();
-        current_grid.expand = true;
-        current_grid.row_homogeneous = true;
-        current_grid.column_homogeneous = true;
-        current_grid.margin_start = 12;
-        current_grid.margin_end = 12;
+    // Public wrapper so navigation entry points outside this class (e.g.
+    // the page-dot switcher, which scrolls the Paginator directly) can
+    // make sure a page's AppButtons exist before it becomes visible.
+    public void ensure_page_ready (int number) {
+        ensure_page_filled (number);
+    }
 
-        current_grid.row_spacing = 24;
-        current_grid.column_spacing = 0;
-        grids.set (page.number, current_grid);
-        paginator.add (current_grid);
+    // Opportunistically fills remaining pages one at a time during main-loop
+    // idle time, so pages the user hasn't navigated to yet get a head start
+    // on their (async) icon loads before they're actually needed.
+    // ensure_page_filled ()'s filled_pages check makes this safe to overlap
+    // with on-demand fills triggered by navigation.
+    private void schedule_background_fill () {
+        if (background_fill_source != 0) {
+            GLib.Source.remove (background_fill_source);
+            background_fill_source = 0;
+        }
 
-        // Fake grids in case there are not enough apps to fill the grid
-        for (var row = 0; row < page.rows; row++)
-            for (var column = 0; column < page.columns; column++)
-                current_grid.attach (new Gtk.Grid (), column, row, 1, 1);
+        int next_page = 2;
+
+        background_fill_source = GLib.Idle.add (() => {
+            if (next_page > total_page_count) {
+                background_fill_source = 0;
+                return GLib.Source.REMOVE;
+            }
+
+            ensure_page_filled (next_page);
+            next_page++;
+
+            return GLib.Source.CONTINUE;
+        }, GLib.Priority.LOW);
     }
 
     private Gtk.Widget? get_widget_at (int column, int row) {
         var col = ((int)(column / page.columns)) + 1;
+
+        if (col < 1 || col > total_page_count) {
+            return null;
+        }
+
+        ensure_page_filled (col);
 
         var grid = grids.get (col);
         if (grid != null) {
@@ -146,7 +227,7 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
     }
 
     private int get_n_pages () {
-        return (int) page.number;
+        return total_page_count;
     }
 
     private int get_current_page () {
@@ -155,6 +236,8 @@ public class Slingshot.Widgets.Grid : Gtk.Grid {
 
     private Gtk.Widget get_page (int number) {
         assert (number > 0 && number <= get_n_pages ());
+
+        ensure_page_filled (number);
 
         return paginator.get_children ().nth_data (number - 1);
     }

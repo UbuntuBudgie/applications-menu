@@ -28,18 +28,20 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
     public unowned Hdy.Paginator paginator { get; construct; }
 #endif
     public unowned Gtk.Widget page { get; construct; }
+    public unowned Slingshot.Widgets.Grid? grid_view { get; construct; }
 
     private static Gtk.CssProvider provider;
     private int page_number;
 
 #if HANDY1
-    public PageChecker (Hdy.Carousel paginator, Gtk.Widget page) {
+    public PageChecker (Hdy.Carousel paginator, Gtk.Widget page, Slingshot.Widgets.Grid? grid_view = null) {
 #else
-    public PageChecker (Hdy.Paginator paginator, Gtk.Widget page) {
+    public PageChecker (Hdy.Paginator paginator, Gtk.Widget page, Slingshot.Widgets.Grid? grid_view = null) {
 #endif
         Object (
             paginator: paginator,
-            page: page
+            page: page,
+            grid_view: grid_view
         );
     }
 
@@ -60,6 +62,9 @@ public class Slingshot.Widgets.PageChecker : Gtk.Button {
         update_opacity ();
 
         clicked.connect (() => {
+            if (grid_view != null) {
+                grid_view.ensure_page_ready (page_number);
+            }
             paginator.scroll_to (page);
         });
 

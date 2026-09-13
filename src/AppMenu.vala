@@ -232,6 +232,7 @@ namespace AppMenuApplet {
                     popover.hide();
                 } else {
                     view.show_slingshot ();
+                    //popover.reset(true);
                     this.manager.show_popover(widget);
                 }
                 return Gdk.EVENT_STOP;
@@ -314,6 +315,7 @@ namespace AppMenuApplet {
                     popover.hide();
                 } else {
                     view.show_slingshot();
+                    //popover.reset(true);
                     this.manager.show_popover(widget);
                 }
             }
