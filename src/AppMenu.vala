@@ -113,7 +113,7 @@ namespace AppMenuApplet {
     public class AppMenuApplet : Budgie.Applet {
 
         private Gtk.ToggleButton widget;
-        private Budgie.Popover popover = null;
+        private AppMenuWindow? menu_window;
         private unowned Budgie.PopoverManager? manager = null;
         public string uuid { public set; public get; }
 
@@ -127,7 +127,8 @@ namespace AppMenuApplet {
 
         protected GLib.Settings settings;
 
-        private Gtk.Grid? indicator_grid = null;
+        // When the menu last hid; see toggle_menu
+        private int64 last_hidden = 0;
 
         Gtk.Image img;
         Gtk.Label label;
@@ -207,11 +208,11 @@ namespace AppMenuApplet {
             st.add_class("budgie-menu-launcher");
             st.add_class("panel-button");
 
-            /* Popover */
-            popover = new Budgie.Popover(widget);
-            indicator_grid = new Gtk.Grid ();
-            indicator_grid.attach (view, 0, 0, 1, 1);
-            popover.add(indicator_grid);
+            /* Menu window (own layer-shell surface, not a Budgie.Popover -
+             * see AppMenuWindow for why) */
+            menu_window = new AppMenuWindow(view, widget);
+            menu_window.bind_property("visible", widget, "active");
+            menu_window.notify["visible"].connect(on_menu_visible_changed);
             update_tooltip ();
             if (keybinding_settings != null) {
                 keybinding_settings.changed.connect ((key) => {
@@ -224,28 +225,15 @@ namespace AppMenuApplet {
             supported_actions = Budgie.PanelAction.MENU;
 
             /* On Press Menu Button */
-            widget.button_press_event.connect((e)=> {
-                if (e.button != 1) {
-                    return Gdk.EVENT_PROPAGATE;
-                }
-                if (popover.get_visible()) {
-                    popover.hide();
-                } else {
-                    view.show_slingshot ();
-                    //popover.reset(true);
-                    this.manager.show_popover(widget);
-                }
-                return Gdk.EVENT_STOP;
-            });
-            popover.get_child().show_all();
+            widget.button_press_event.connect(on_launcher_press);
+            this.destroy.connect(on_applet_destroy);
+
             add(widget);
             show_all();
 
             on_settings_changed("enable-menu-label");
             on_settings_changed("menu-icon");
             on_settings_changed("menu-label");
-
-            view.close_indicator.connect (on_close_indicator);
 
             /* Potentially reload icon on pixel size jumps */
             panel_size_changed.connect((p,i,s)=> {
@@ -257,8 +245,47 @@ namespace AppMenuApplet {
 
         }
 
-        private void on_close_indicator () {
-            popover.hide();
+        // A toplevel window isn't destroyed with the applet
+        private void on_applet_destroy() {
+            if (menu_window != null) {
+                menu_window.destroy();
+                menu_window = null;
+            }
+        }
+
+        private void on_menu_visible_changed(GLib.Object sender, ParamSpec pspec) {
+            if (menu_window != null && !menu_window.visible) {
+                last_hidden = get_monotonic_time();
+            }
+        }
+
+        private bool on_launcher_press(Gdk.EventButton e) {
+            if (e.button != 1) {
+                return Gdk.EVENT_PROPAGATE;
+            }
+
+            toggle_menu();
+            // Stop the ToggleButton from toggling itself; the menu drives its state
+            return Gdk.EVENT_STOP;
+        }
+
+        private void toggle_menu() {
+            if (menu_window == null) {
+                return;
+            }
+
+            if (menu_window.get_visible()) {
+                menu_window.hide();
+                return;
+            }
+
+            // The click that took focus off the menu already closed it; don't reopen
+            if (get_monotonic_time() - last_hidden < 250000) {
+                widget.active = false;
+                return;
+            }
+
+            menu_window.present_menu(panel_position);
         }
 
         public override void panel_position_changed(Budgie.PanelPosition position)
@@ -311,20 +338,14 @@ namespace AppMenuApplet {
 
         public override void invoke_action(Budgie.PanelAction action) {
             if ((action & Budgie.PanelAction.MENU) != 0) {
-                if (popover.get_visible()) {
-                    popover.hide();
-                } else {
-                    view.show_slingshot();
-                    //popover.reset(true);
-                    this.manager.show_popover(widget);
-                }
+                toggle_menu();
             }
         }
 
         private void update_tooltip () {
             string[] accels = {};
 
-            if (keybinding_settings != null && indicator_grid != null) {
+            if (keybinding_settings != null) {
                 var raw_accels = keybinding_settings.get_strv ("panel-main-menu");
                 foreach (unowned string raw_accel in raw_accels) {
                     if (raw_accel != "") accels += raw_accel;
@@ -335,10 +356,10 @@ namespace AppMenuApplet {
 #endif
         }
 
+        // A window can't register with the manager; focus handoff keeps one open anyway
         public override void update_popovers(Budgie.PopoverManager? manager)
         {
             this.manager = manager;
-            manager.register_popover(widget, popover);
         }
     }
 }

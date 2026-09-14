@@ -31,6 +31,7 @@ custom_target('plugin-appmenu',
 
 sources = [
     'AppMenu.vala',
+    'AppMenuWindow.vala',
     'IconChooser.vala',
     applet_appmenu_resources,
     'SlingshotView.vala',
@@ -54,6 +55,7 @@ sources = [
     'Widgets/AppContextMenu.vala',
     'Widgets/AppListBox.vala',
     'Widgets/AppListRow.vala',
+    'Widgets/MenuArrow.vala',
     'Widgets/Switcher.vala',
     'Widgets/SearchItem.vala',
     'Widgets/PageChecker.vala',
@@ -110,6 +112,7 @@ dependencies = [
     peas_dep,
     libhandy_dep,
     posix_dep,
+    gtk_layer_shell_dep,
 ]
 
 #wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])

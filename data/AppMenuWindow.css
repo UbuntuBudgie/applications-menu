@@ -1,0 +1,17 @@
+/*
+ * The menu is a transparent layer-shell window so the arrow can protrude
+ * past the body as a triangle. The arrow is filled with its `color`.
+ */
+
+window.appmenu-window {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.appmenu-body {
+  border-radius: 3px;
+}
+
+.appmenu-arrow {
+  color: @theme_bg_color;
+}

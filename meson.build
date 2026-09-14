@@ -66,6 +66,10 @@ endif
 posix_dep = meson.get_compiler('vala').find_library('posix')
 for_wayland = get_option('for-wayland')
 
+# The menu window is its own layer-shell surface so a keybinding-triggered
+# open can still grab keyboard focus (a Budgie.Popover can't on Wayland).
+gtk_layer_shell_dep = dependency('gtk-layer-shell-0', version: '>= 0.8.0')
+
 if for_wayland == false
     budgie_dep = dependency('budgie-1.0')
     peas_dep = dependency('libpeas-1.0')
